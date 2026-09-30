@@ -24,7 +24,7 @@
 ## פיתוח מקומי
 ```bash
 npm install
-cp .env.example .env   # אפשר להשאיר את Turso ריק: נוצר קובץ local.db
+cp .env.example .env   # חובה למלא TURSO_DATABASE_URL ו-TURSO_AUTH_TOKEN: אין מסד נתונים מקומי
 npm run dev
 npm test               # בדיקות לחוקי התזמון והחגים
 ```
