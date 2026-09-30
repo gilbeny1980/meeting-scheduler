@@ -34,7 +34,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <footer className="mt-12 border-t border-line">
           <div className="mx-auto grid max-w-3xl gap-1 px-4 py-8 text-sm text-muted">
             <div className="font-semibold text-ink">
-              {BRAND.name} <span className="font-normal text-muted" dir="ltr">· {BRAND.tagline}</span>
+              {BRAND.name}
+              <span className="ms-3 text-xs font-normal uppercase tracking-[0.2em] text-muted" dir="ltr">
+                {BRAND.tagline}
+              </span>
             </div>
             <div>{BRAND.address}</div>
             <div>

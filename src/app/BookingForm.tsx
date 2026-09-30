@@ -195,7 +195,7 @@ export default function BookingForm({ projects }: { projects: string[] }) {
                       setDate(k);
                       setTime(null);
                     }}
-                    className={`aspect-square rounded-md text-base ${
+                    className={`h-12 rounded-md text-base ${
                       selected
                         ? "bg-brand font-bold text-brand-ink"
                         : available
