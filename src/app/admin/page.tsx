@@ -34,7 +34,7 @@ export default async function Admin({ searchParams }: { searchParams: Promise<{ 
   const scope = scopeParam === "all" ? "all" : "upcoming";
   const today = israelNow().date;
   const [meetings, projects, blocks] = await Promise.all([listMeetings(scope, today), listProjects(false), listBlocks(today)]);
-  const card = "mt-6 rounded-2xl border border-line bg-card p-4 sm:p-6";
+  const card = "mt-6 rounded-lg border border-line bg-card p-4 sm:p-6";
 
   return (
     <main className="mx-auto max-w-4xl px-4 py-8">

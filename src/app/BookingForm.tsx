@@ -109,26 +109,26 @@ export default function BookingForm({ projects }: { projects: string[] }) {
     setBusy(false);
   }
 
-  const card = "mt-6 rounded-2xl border border-line bg-card p-4 sm:p-6";
+  const card = "mt-4 rounded-lg border border-line bg-card p-5 shadow-sm sm:p-7";
 
   return (
     <form onSubmit={submit}>
       {error && (
-        <p role="alert" className="mt-6 rounded-xl border border-danger p-3 font-semibold text-danger">
+        <p role="alert" className="mt-6 rounded-md border border-danger p-3 font-semibold text-danger">
           {error}
         </p>
       )}
 
       <section className={card}>
-        <h2 className="font-semibold">1. משך הפגישה</h2>
+        <h2 className="text-lg font-bold">1. משך הפגישה</h2>
         <div className="mt-3 grid grid-cols-2 gap-3">
           {([30, 60] as const).map((d) => (
             <button
               key={d}
               type="button"
               onClick={() => setDuration(d)}
-              className={`rounded-xl border px-4 py-3 text-lg font-semibold ${
-                duration === d ? "border-brand bg-brand-soft text-ink" : "border-line"
+              className={`rounded-md border px-4 py-3 text-lg font-semibold ${
+                duration === d ? "border-brand bg-brand text-brand-ink" : "border-line hover:bg-brand-soft"
               }`}
               aria-pressed={duration === d}
             >
@@ -139,7 +139,7 @@ export default function BookingForm({ projects }: { projects: string[] }) {
       </section>
 
       <section className={card}>
-        <h2 className="font-semibold">2. תאריך</h2>
+        <h2 className="text-lg font-bold">2. תאריך</h2>
         {loadError && (
           <p className="mt-3 text-danger">
             טעינת המועדים נכשלה.{" "}
@@ -195,7 +195,7 @@ export default function BookingForm({ projects }: { projects: string[] }) {
                       setDate(k);
                       setTime(null);
                     }}
-                    className={`aspect-square rounded-lg text-base ${
+                    className={`aspect-square rounded-md text-base ${
                       selected
                         ? "bg-brand font-bold text-brand-ink"
                         : available
@@ -214,7 +214,7 @@ export default function BookingForm({ projects }: { projects: string[] }) {
 
       {date && (
         <section className={card}>
-          <h2 className="font-semibold">3. שעה · {longDate(date)}</h2>
+          <h2 className="text-lg font-bold">3. שעה · {longDate(date)}</h2>
           <div className="mt-3 grid grid-cols-3 gap-2 sm:grid-cols-4">
             {times.map((t) => (
               <button
@@ -222,7 +222,7 @@ export default function BookingForm({ projects }: { projects: string[] }) {
                 type="button"
                 onClick={() => setTime(t)}
                 aria-pressed={time === t}
-                className={`rounded-xl border px-2 py-2.5 font-semibold ${
+                className={`rounded-md border px-2 py-2.5 font-semibold ${
                   time === t ? "border-brand bg-brand text-brand-ink" : "border-line hover:bg-brand-soft"
                 }`}
               >
@@ -236,7 +236,7 @@ export default function BookingForm({ projects }: { projects: string[] }) {
 
       {date && time && (
         <section className={card}>
-          <h2 className="font-semibold">4. הפרטים שלכם</h2>
+          <h2 className="text-lg font-bold">4. הפרטים שלכם</h2>
           <div className="mt-3 grid gap-3">
             <label className="grid gap-1">
               <span className="text-sm text-muted">שם מלא</span>
@@ -276,7 +276,7 @@ export default function BookingForm({ projects }: { projects: string[] }) {
             />
           </div>
 
-          <p className="mt-4 rounded-xl bg-brand-soft p-3">
+          <p className="mt-5 rounded-md border-s-4 border-accent bg-brand-soft p-3">
             הפגישה: <b>{longDate(date)}</b>, {time}–{endTime(time, duration)} ({duration === 30 ? "חצי שעה" : "שעה"})
           </p>
           <button className="btn mt-4 w-full text-lg" disabled={busy}>

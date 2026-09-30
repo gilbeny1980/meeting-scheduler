@@ -1,31 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #f4f6fa;
+  --bg: #f6f5f3;
   --card: #ffffff;
-  --ink: #17202f;
-  --muted: #5d6879;
-  --line: #dde3ec;
-  --brand: #1d4ed8;
+  --ink: #0d0d0e;
+  --muted: #5d5d61;
+  --line: #e3e1dc;
+  --brand: #0d0d0e;
   --brand-ink: #ffffff;
-  --brand-soft: #e3ebff;
-  --danger: #b91c1c;
-  --ok: #15803d;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0f141d;
-    --card: #182030;
-    --ink: #eef2f8;
-    --muted: #9aa6b8;
-    --line: #2a3446;
-    --brand: #6b93ff;
-    --brand-ink: #0b1220;
-    --brand-soft: #22325a;
-    --danger: #f87171;
-    --ok: #4ade80;
-  }
+  --brand-soft: #ecebe7;
+  --accent: #2b5672;
+  --danger: #b3261e;
+  --ok: #2b7a4b;
 }
 
 @theme inline {
@@ -39,12 +25,13 @@
   --color-brand-soft: var(--brand-soft);
   --color-danger: var(--danger);
   --color-ok: var(--ok);
+  --color-accent: var(--accent);
 }
 
 body {
   background: var(--bg);
   color: var(--ink);
-  font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  font-family: "Heebo", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
 }
 
 .field {
@@ -52,8 +39,8 @@ body {
   border: 1px solid var(--line);
   background: var(--card);
   color: var(--ink);
-  border-radius: 0.75rem;
-  padding: 0.7rem 0.85rem;
+  border-radius: 0.375rem;
+  padding: 0.75rem 0.9rem;
   font-size: 1rem;
 }
 .field:focus {
@@ -61,12 +48,17 @@ body {
   outline-offset: 1px;
 }
 .btn {
-  border-radius: 0.75rem;
-  padding: 0.75rem 1.25rem;
+  border-radius: 0.375rem;
+  padding: 0.8rem 1.4rem;
   font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: background 0.15s;
   background: var(--brand);
   color: var(--brand-ink);
   cursor: pointer;
+}
+.btn:hover:not(:disabled) {
+  background: var(--accent);
 }
 .btn:disabled {
   opacity: 0.5;
