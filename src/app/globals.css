@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f4f6fa;
+  --card: #ffffff;
+  --ink: #17202f;
+  --muted: #5d6879;
+  --line: #dde3ec;
+  --brand: #1d4ed8;
+  --brand-ink: #ffffff;
+  --brand-soft: #e3ebff;
+  --danger: #b91c1c;
+  --ok: #15803d;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f141d;
+    --card: #182030;
+    --ink: #eef2f8;
+    --muted: #9aa6b8;
+    --line: #2a3446;
+    --brand: #6b93ff;
+    --brand-ink: #0b1220;
+    --brand-soft: #22325a;
+    --danger: #f87171;
+    --ok: #4ade80;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-brand: var(--brand);
+  --color-brand-ink: var(--brand-ink);
+  --color-brand-soft: var(--brand-soft);
+  --color-danger: var(--danger);
+  --color-ok: var(--ok);
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+}
+
+.field {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  border-radius: 0.75rem;
+  padding: 0.7rem 0.85rem;
+  font-size: 1rem;
+}
+.field:focus {
+  outline: 2px solid var(--brand);
+  outline-offset: 1px;
+}
+.btn {
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+  background: var(--brand);
+  color: var(--brand-ink);
+  cursor: pointer;
+}
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.btn-ghost {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+}
