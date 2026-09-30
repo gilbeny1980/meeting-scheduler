@@ -4,6 +4,9 @@ const globalForDb = globalThis as unknown as { db?: Client; dbReady?: Promise<vo
 
 function client(): Client {
   if (!globalForDb.db) {
+    if (process.env.VERCEL && !process.env.TURSO_DATABASE_URL) {
+      throw new Error("TURSO_DATABASE_URL is not set. Add it (and TURSO_AUTH_TOKEN) in Vercel Environment Variables, then redeploy.");
+    }
     globalForDb.db = createClient({
       url: process.env.TURSO_DATABASE_URL || "file:local.db",
       authToken: process.env.TURSO_AUTH_TOKEN || undefined,
